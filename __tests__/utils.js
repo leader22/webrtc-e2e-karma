@@ -1,3 +1,11 @@
+import { Signaling } from "../client";
+
+export function createSign() {
+  const sign = new Signaling({
+    serverUrl: `wss://${location.hostname}:9001`
+  });
+  return sign;
+}
 export async function connectPCandDC({ uniCh, side }) {
   const pc = new RTCPeerConnection();
   const dc = pc.createDataChannel("sign", { negotiated: true, id: 1 });
